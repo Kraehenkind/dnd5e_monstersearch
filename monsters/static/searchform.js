@@ -6,9 +6,16 @@ const showResults = document.getElementById("content_results")
 
 console.log(monster_stats)
 
-if (monster_stats.length > 1)
+if (monster_stats.length > 1){
     monster_stats.forEach(element => {
-        let nameTag = document.createElement('p')
-        nameTag.textContent = element["name"]
-        showResults.appendChild(nameTag)
-    });
+        let nameTag = document.createElement('p');
+        nameTag.textContent = element["name"];
+        showResults.appendChild(nameTag);
+    })}
+else {
+    let stat_block = monster_stats[0]
+    Object.entries(stat_block).forEach(([key, value]) => {
+    let nameTag = document.createElement('p');
+    nameTag.textContent = `${key}: ${value}`;
+    showResults.appendChild(nameTag);
+})};
