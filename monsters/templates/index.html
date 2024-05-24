@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block header %}
+    <h1>{% block title %}The Monster Manual {% endblock title %}</h1>
+{% endblock header %}
+{% block content %}
+    <H1>Find what is needed!</H1>
+    <div class="dataDiv" id="monster_stats" data_from_flask="{{monster_data}}"></div>
+    <div class="content">
+        <form method="POST" class="content_searchform">
+            <label for="search_name">Name</label>
+            <input id="search_name" name="search_name" class="content_searchform-name" type="text">
+            <input type="submit" value="Find Monster">
+        </form>
+    <div id="content_results"></div>
+    </div>
+    <script src="{{url_for('static', filename='searchform.js')}}"></script>
+{% endblock content %}
