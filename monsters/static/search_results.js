@@ -14,8 +14,10 @@ if (monster_stats.length > 1){
     })}
 else {
     let stat_block = monster_stats[0]
-    Object.entries(stat_block).forEach(([key, value]) => {
-    let nameTag = document.createElement('p');
-    nameTag.textContent = `${key}: ${value}`;
-    showResults.appendChild(nameTag);
-})};
+    if (stat_block instanceof Object){
+        Object.entries(stat_block).forEach(([key, value])=> {
+        let nameTag = document.createElement('p');
+        nameTag.textContent = `${key}: ${value}`;
+        showResults.appendChild(nameTag);
+    })
+}};

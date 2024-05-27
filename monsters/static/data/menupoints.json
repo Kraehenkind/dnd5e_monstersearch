@@ -1,0 +1,26 @@
+{
+    "search_name": "Name",
+    "search_cr": {
+        "Challenge rating": "cr",
+        "1/8": 0.125,
+        "1/4": 0.25
+    },
+    "search_type": {
+        "Type" : "none",
+        "Beast": "beast", 
+        "Ooze": "ooze", 
+        "Undead": "undead", 
+        "Humanoid": "humanoid",
+        "Dragon": "dragon",
+        "Aberration": "aberration",
+        "Fiend": "fiend",
+        "Giant": "giant",
+        "Construct": "construct",
+        "Monstrosity": "monstrosity",
+        "Fey": "fey",
+        "Swarm of Tiny beasts": "swarm of Tiny beasts",
+        "Celestial": "celestial",
+        "Plant": "plant",
+        "Elemental": "elemental"
+        }
+}

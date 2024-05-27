@@ -4,6 +4,7 @@ import json
 from flask import (Flask, render_template, redirect, url_for, request, session, g)
 
 from monsters.db import db_connect
+from monsters.datacollector import gather_data
 
 def create_app():
     # application factory function
@@ -24,6 +25,12 @@ def create_app():
     def index():
         export_list = []
         if request.method == 'POST':
+            search_queries = { 
+                'name': request.form['search_name'],
+                'cr': request.form['search_cr'],
+                'type': request.form['search_type']
+                }
+            #dataset = gather_data(search_queries)
             name = request.form['search_name']
             db = db_connect()
             data = db.find({'index': {'$regex': name, '$options': 'i'}})

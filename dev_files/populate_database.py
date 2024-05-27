@@ -94,5 +94,20 @@ def populate_database():
 
     return collection.find()
 
+def get_types():
+    """ get all existing Types in /dev/monsters/*.json
+
+    return: list of all types
+    """
+    types = set()
+    with open('dev_files/dnd_data_monsters.json', 'r', encoding='utf-8') as file:
+        monsterlist = json.load(file)
+        for entry in monsterlist['results']:
+            with open(f'dev_files/monsters/dnd_data_{entry["index"]}.json', 'r', encoding='utf-8') as file:
+                monsterdata = json.load(file)
+                types.add(monsterdata["type"])
+    return [i for i in types]
+                
+print(get_types())
 #get_all_monster_jsons()
 #print(populate_database())
