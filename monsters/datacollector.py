@@ -1,3 +1,4 @@
+from flask import g
 from monsters.db import db_connect
 
 def gather_data(query: dict)-> dict:
@@ -6,11 +7,14 @@ def gather_data(query: dict)-> dict:
     Return: List with requested data
     """
 
-    name = query['search_name']
-
+    querylist = []
+    for key, value in query.items():
+        if value != "none" and value != "":
+            if not value.replace(".","").isdigit():
+                values = value.split()
+                for i in values:
+                    querylist.append({key : {"$regex": i, "$options": "i"}})
+            else: 
+                querylist.append({key: {"$eq": float(value), "$type": "number"}})
     db = db_connect()
-    data = db.find({'index': {'$regex': name, '$options': 'i'}})
-    for stat in data:
-        stat.pop("_id")
-        export_list.append(stat)
-        pass
+    return db.find({"$and": querylist}) if querylist != [] else []

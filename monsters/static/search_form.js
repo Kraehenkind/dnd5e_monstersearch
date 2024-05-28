@@ -4,7 +4,6 @@ document.addEventListener('DOMContentLoaded', function() {
     fetch("/static/data/menupoints.json")
         .then(response => response.json())
         .then(data => {
-            console.log(data)
             Object.keys(data).forEach((key) => {
                 let value = data[key]
                 if (typeof value === "string") {
@@ -21,30 +20,33 @@ document.addEventListener('DOMContentLoaded', function() {
 
     function createTextfield(id, name) {
         let label = document.createElement("label");
-        label.for = id;
+        label.htmlFor = `content_searchform-search_${id}`;
         label.innerHTML = name;
         let textfield = document.createElement("input");
-        textfield.id = id;
+        textfield.id = `content_searchform-search_${id}`;
         textfield.name = id;
-        textfield.class = "content_searchform-textsearch";
+        textfield.className = "content_searchform-textsearch";
         searchForm.appendChild(label);
         searchForm.appendChild(textfield);
     }
     
     function createDropdown(id, entries) {
         let label = document.createElement("label");
-        label.for = id;
+        label.htmlFor = `content_searchform-search_${id}`;
         label.innerHTML = entries
         let selection = document.createElement("select")
         selection.name = id
-        selection.id = id
-        Object.keys(entries).forEach((key) => {
-            let value = entries[key]
-            let option = document.createElement("option")
-            option.value = value
-            option.innerHTML = key
-            selection.appendChild(option)
+        selection.id = `content_searchform-search_${id}`
+        selection.className = "content_searchform-selection";
+        entries.forEach(inner_entries => {
+            Object.keys(inner_entries).forEach((key) => {
+                let value = inner_entries[key]
+                let option = document.createElement("option")
+                option.value = value
+                option.innerHTML = key
+                selection.appendChild(option)
+            });
+            searchForm.appendChild(selection)
         });
-        searchForm.appendChild(selection)
     }
 })

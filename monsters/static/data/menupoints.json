@@ -1,26 +1,53 @@
 {
-    "search_name": "Name",
-    "search_cr": {
-        "Challenge rating": "cr",
-        "1/8": 0.125,
-        "1/4": 0.25
-    },
-    "search_type": {
-        "Type" : "none",
-        "Beast": "beast", 
-        "Ooze": "ooze", 
-        "Undead": "undead", 
-        "Humanoid": "humanoid",
-        "Dragon": "dragon",
-        "Aberration": "aberration",
-        "Fiend": "fiend",
-        "Giant": "giant",
-        "Construct": "construct",
-        "Monstrosity": "monstrosity",
-        "Fey": "fey",
-        "Swarm of Tiny beasts": "swarm of Tiny beasts",
-        "Celestial": "celestial",
-        "Plant": "plant",
-        "Elemental": "elemental"
-        }
+    "name": "Name",
+    "challenge_rating": [
+        {"Challenge rating": "none"},
+        {"0": 0},
+        {"1/8": 0.125},
+        {"1/4": 0.25},
+        {"1/2": 0.5},
+        {"1": 1},
+        {"2": 2},
+        {"3": 3}
+    ],
+
+    "type": [
+        {"Type" : "none"},
+        {"Aberration": "aberration"},
+        {"Beast": "beast"}, 
+        {"Celestial": "celestial"},
+        {"Construct": "construct"},
+        {"Dragon": "dragon"},
+        {"Elemental": "elemental"},
+        {"Fey": "fey"},
+        {"Fiend": "fiend"},
+        {"Giant": "giant"},
+        {"Humanoid": "humanoid"},
+        {"Monstrosity": "monstrosity"},
+        {"Ooze": "ooze"}, 
+        {"Plant": "plant"},
+        {"Swarm of Tiny beasts": "swarm of Tiny beasts"},
+        {"Undead": "undead"}
+        ],
+
+    "subtypes": [
+        {"Subtype": "none"},
+        {"Any race": "any race"},
+        {"Demon": "demon"},
+        {"Devil": "devil"},
+        {"Dwarf": "dwarf"},
+        {"Elf": "elf"},
+        {"Gnoll": "gnoll"},
+        {"Gnome": "gnome"},
+        {"Goblinoid": "goblinoid"},
+        {"Grimlock": "grimlock"},
+        {"Human": "human"},
+        {"Kobold": "kobold"},
+        {"Lizardfolk": "lizardfolk"},
+        {"Merfolk": "merfolk"},
+        {"Orc": "orc"},
+        {"Sahuagin": "sahuagin"},
+        {"Shapechanger": "shapechanger"},
+        {"Titan": "titan"}
+    ]
 }

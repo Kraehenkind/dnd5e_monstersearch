@@ -105,7 +105,7 @@ def get_types():
         for entry in monsterlist['results']:
             with open(f'dev_files/monsters/dnd_data_{entry["index"]}.json', 'r', encoding='utf-8') as file:
                 monsterdata = json.load(file)
-                types.add(monsterdata["type"])
+                types.add(monsterdata.get("subtype"))
     return [i for i in types]
                 
 print(get_types())

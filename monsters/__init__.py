@@ -25,15 +25,7 @@ def create_app():
     def index():
         export_list = []
         if request.method == 'POST':
-            search_queries = { 
-                'name': request.form['search_name'],
-                'cr': request.form['search_cr'],
-                'type': request.form['search_type']
-                }
-            #dataset = gather_data(search_queries)
-            name = request.form['search_name']
-            db = db_connect()
-            data = db.find({'index': {'$regex': name, '$options': 'i'}})
+            data=gather_data(request.form)
             for stat in data:
                 stat.pop("_id")
                 export_list.append(stat)
