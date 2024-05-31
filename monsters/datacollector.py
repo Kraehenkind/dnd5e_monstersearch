@@ -1,12 +1,12 @@
 from flask import g
 from monsters.db import db_connect
 
-def gather_data(query: dict)-> dict:
+def gather_data(query: dict, fields = None)-> dict:
     """ collects the neccessary data, based on query
 
     Return: List with requested data
     """
-
+    projection = {field: 1 for field in fields} if fields else None
     querylist = []
     for key, value in query.items():
         if value != "none" and value != "":
@@ -17,4 +17,8 @@ def gather_data(query: dict)-> dict:
             else: 
                 querylist.append({key: {"$eq": float(value), "$type": "number"}})
     db = db_connect()
-    return db.find({"$and": querylist}) if querylist != [] else []
+    return db.find({"$and": querylist},projection) if querylist != [] else []
+
+def get_statblock(index):
+    db = db_connect()
+    return db.find({"index" : index})

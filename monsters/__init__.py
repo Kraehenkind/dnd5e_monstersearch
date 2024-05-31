@@ -25,7 +25,8 @@ def create_app():
     def index():
         export_list = []
         if request.method == 'POST':
-            data=gather_data(request.form)
+            fields = ["index", "name"]
+            data=gather_data(request.form, fields)
             for stat in data:
                 stat.pop("_id")
                 export_list.append(stat)
@@ -34,6 +35,9 @@ def create_app():
             export_data = json.dumps(export_list)
             
         return render_template('index.html', monster_data = export_data)
+
+    from . import stats
+    app.register_blueprint(stats.bp)
 
     @app.route('/confirm_running')
     def confirm_running():
