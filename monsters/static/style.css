@@ -1,3 +1,24 @@
 * {
     background-color: rgb(240, 200, 150);
 }
+
+.spacer {
+    width: 75%;
+    height: 0.5rem;
+    background-color: rgb(99, 22, 22); /* Background color */
+    clip-path: polygon(0 0, 100% 100%, 0 100%); /* Defines the triangular shape */
+}
+
+#content_results_header h1 {
+    margin-bottom: 0;
+}
+
+#content_results_header p {
+    font-style: italic;
+    margin-top: 0;
+}
+
+.titlefont {
+    font-weight: bold;
+    color: rgb(99, 22, 22);
+}

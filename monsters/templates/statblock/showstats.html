@@ -5,6 +5,48 @@
 {% endblock header %}
 {% block content %}
 <div class="dataDiv" id="monster_stats" data_from_flask="{{stats}}"></div>
-<div id="content_results"></div>
+<div id="content_results">
+    <div id="content_results_header"></div>
+    <div class="spacer" id="content_results_spacer"></div>
+    <div id="content_results_mainstats">
+        <table id="content_results_mainstats_table">
+            <tr id="content_results_mainstats_table-armorclass">
+                <td class="table_row_title titlefont">Armor Class:</td>
+            </tr>
+            <tr id="content_results_mainstats_table-hitpoints">
+                <td class="table_row_title titlefont">Hit Points:</td>
+            </tr>
+            <tr id="content_results_mainstats_table-speed">
+                <td class="table_row_title titlefont">Speed:</td>
+            </tr>
+        </table>
+    </div>
+    <div class="spacer" id="content_results_spacer"></div>
+    <div id="content_results_attributes">
+        <table id="content_results_attributes_table">
+            <thead id="content_results_attributes_thead">
+                <th class="attributes_names titlefont" id="content_results_attributes_thead-STR">STR</th>
+                <th class="attributes_names titlefont" id="content_results_attributes_thead-DEX">DEX</th>
+                <th class="attributes_names titlefont" id="content_results_attributes_thead-CON">CON</th>
+                <th class="attributes_names titlefont" id="content_results_attributes_thead-INT">INT</th>
+                <th class="attributes_names titlefont" id="content_results_attributes_thead-WIS">WIS</th>
+                <th class="attributes_names titlefont" id="content_results_attributes_thead-CHA">CHA</th>
+            </thead>
+            <tbody id="content_results_attributes_tbody">
+                <tr  id="content_results_attributes_tbody-row"></tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="spacer" id="content_results_spacer"></div>
+    <div id="content_results_proficiencies">
+        <table id="content_results_proficiencies_table"></table>
+    </div>
+    <div class="spacer" id="content_results_spacer"></div>
+    <div id="content_results_abilities"></div>
+    <div class="spacer" id="content_results_spacer"></div>
+    <div id="content_results_actions"></div>
+    <div class="spacer" id="content_results_spacer"></div>
+    <div id="content_results_specials"></div>
+</div>
 <script src="{{url_for('static', filename='show_stats.js')}}"></script>
 {% endblock content %}

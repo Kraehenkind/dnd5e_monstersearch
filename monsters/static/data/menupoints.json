@@ -30,7 +30,7 @@
         {"Undead": "undead"}
         ],
 
-    "subtypes": [
+    "subtype": [
         {"Subtype": "none"},
         {"Any race": "any race"},
         {"Demon": "demon"},
