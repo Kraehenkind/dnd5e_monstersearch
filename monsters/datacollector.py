@@ -1,4 +1,3 @@
-from flask import g
 from monsters.db import db_connect
 
 def gather_data(query: dict, fields = None)-> dict:

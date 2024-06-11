@@ -1,10 +1,11 @@
 import os
 import json
+import mimetypes
 
-from flask import (Flask, render_template, redirect, url_for, request, session, g)
+from flask import (Flask, render_template, request)
 
-from monsters.db import db_connect
 from monsters.datacollector import gather_data
+
 
 def create_app():
     # application factory function
@@ -14,6 +15,9 @@ def create_app():
         MONGO_CLIENT = 'localhost',
         MONGO_PORT = 27017
         )
+    
+    #set MIME-Types for .js files
+    mimetypes.add_type("application/javascript", ".js")
     
     # create instance folder
     try:
