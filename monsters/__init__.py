@@ -31,6 +31,11 @@ def create_app():
         if request.method == 'POST':
             fields = ["index", "name"]
             data=gather_data(request.form, fields)
+            searchvalue = dict()
+            for field in request.form:
+                if request.form[field] and request.form[field] != "none":
+                    searchvalue.setdefault(field, request.form[field])
+            searchvalues = json.dumps([searchvalue])
             for stat in data:
                 stat.pop("_id")
                 export_list.append(stat)
@@ -38,13 +43,9 @@ def create_app():
         else:
             export_data = json.dumps(export_list)
             
-        return render_template('index.html', monster_data = export_data)
+        return render_template('index.html', monster_data = export_data, searchvalues = searchvalues)
 
     from . import stats
     app.register_blueprint(stats.bp)
 
-    @app.route('/confirm_running')
-    def confirm_running():
-        return 'RUNNING confirmed'
-    
     return app

@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {    
     const searchForm = document.getElementById("content_searchform")
+    const searchdata = document.getElementById("search_data").getAttribute("data_from_flask")
+
+    searchvalue = JSON.parse(searchdata)
 
     fetch("/static/data/menupoints.json")
         .then(response => response.json())
@@ -26,6 +29,9 @@ document.addEventListener('DOMContentLoaded', function() {
         textfield.id = `content_searchform-search_${id}`;
         textfield.name = id;
         textfield.className = "content_searchform-textsearch";
+        if (id in searchvalue[0]){
+            textfield.value = searchvalue[0][id]
+        }
         searchForm.appendChild(label);
         searchForm.appendChild(textfield);
     }
@@ -46,6 +52,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 option.innerHTML = key
                 selection.appendChild(option)
             });
+            if (id in searchvalue[0]){
+                selection.value = searchvalue[0][id]
+            }
             searchForm.appendChild(selection)
         });
     }

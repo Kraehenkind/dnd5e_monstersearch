@@ -1,5 +1,5 @@
 from flask import (
-    Blueprint, redirect, render_template, url_for
+    Blueprint, redirect, render_template, url_for, g
 )
 import json
 
@@ -23,5 +23,7 @@ def statblock(monsterindex = None):
     if export_list == []:
         return redirect(url_for("index"))
     statblock = json.dumps(export_list)
+    g.monstername = export_list[0]["name"]
+
 
     return render_template("/statblock/showstats.html", monsterindex=monsterindex, stats=statblock)

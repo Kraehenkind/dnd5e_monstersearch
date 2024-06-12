@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 
 {% block header %}
-    <h1>The Monster Manual- </br>{% block title %}Monster Search {% endblock title %}</h1>
+    <h1>The Monster Manual </br>{% block title %}Monster Search {% endblock title %}</h1>
 {% endblock header %}
 {% block content %}
     <H1>Find what is needed!</H1>
     <div class="dataDiv" id="monster_stats" data_from_flask="{{monster_data}}"></div>
+    <div class="dataDiv" id="search_data" data_from_flask="{{searchvalues}}"></div>
     <div class="content">
         <form method="POST" id="content_searchform" class="content_searchform">
         </form>

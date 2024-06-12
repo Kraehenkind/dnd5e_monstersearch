@@ -1,16 +1,12 @@
 {% extends "base.html" %}
 
+{% block title %}{{g.monstername}}{% endblock title%}
+
 {% block header %}
-    <h1>{% block title %}The Monster Manual {% endblock title %}</h1>
+    <h1>The Monster Manual</h1>
 {% endblock header %}
 {% block content %}
 <div class="dataDiv" id="monster_stats" data_from_flask="{{stats}}"></div>
-<div id="content_results">
-    <div id="content_results_abilities"></div>
-    <div class="spacer" id="content_results_spacer"></div>
-    <div id="content_results_actions"></div>
-    <div class="spacer" id="content_results_spacer"></div>
-    <div id="content_results_specials"></div>
-</div>
+<div id="content_results" class="statblock"></div>
 <script type="module" src="{{url_for('static', filename='show_stats.js')}}"></script>
 {% endblock content %}

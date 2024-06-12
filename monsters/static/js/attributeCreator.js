@@ -1,6 +1,6 @@
 const attributeCreator = {
 
-    createAttributes: function(stats) {
+    createAttributes: function(stat_block) {
         let attributes = { "STR": "strength",
                         "DEX": "dexterity",
                         "CON": "constitution",
@@ -29,7 +29,7 @@ const attributeCreator = {
         tbody.id = "content_results_attributes_tbody"
         
         Object.values(attributes).forEach(stat =>{
-            let value = stats[stat]
+            let value = stat_block[stat]
             let td = document.createElement("td")
             let bonus = Math.floor(value/2)-5
             if (bonus >= 0){

@@ -1,12 +1,35 @@
 * {
     background-color: rgb(240, 200, 150);
+    }
+    
+.content {
+    display:flex;
+    flex-direction: column;
+    }
+        
+.statblock {
+    white-space: pre-wrap;
+    border-left: solid 1px rgb(45, 45, 45);
+    border-right: solid 1px rgb(45, 45, 45);
+    padding: 0 5px 0 5px;
+    margin-left: 10vw;
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    max-width: 60rem;
 }
 
 .spacer {
-    width: 75%;
     height: 0.5rem;
-    background-color: rgb(99, 22, 22); /* Background color */
+    background-color: rgb(99, 22, 22); 
     clip-path: polygon(0 0, 100% 100%, 0 100%); /* Defines the triangular shape */
+}
+
+.sub-spacer {
+    width: 60%;
+    height: 0.25rem;
+    background-color: rgb(99, 22, 22);
+    clip-path: polygon(0 0, 100% 100%, 0 100%);
 }
 
 #content_results_header h1 {
@@ -18,7 +41,24 @@
     margin-top: 0;
 }
 
+#content_results_attributes_table{
+    width: 75%;
+    text-align: center;
+}
+
 .titlefont {
     font-weight: bold;
     color: rgb(99, 22, 22);
+    margin-top: 0;
+}
+
+.namefont {
+    font-weight: bold;
+    color: rgb(99, 22, 22);
+}
+
+.subheader {
+    font-weight: lighter;
+    color: rgb(99, 22, 22);
+    margin-bottom: 0;
 }
