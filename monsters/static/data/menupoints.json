@@ -70,5 +70,15 @@
         {"Sahuagin": "sahuagin"},
         {"Shapechanger": "shapechanger"},
         {"Titan": "titan"}
+    ],
+
+    "size": [
+        {"Size": "none"},
+        {"Tiny": "tiny"},
+        {"Small": "small"},
+        {"Medium": "medium"},
+        {"Large": "large"},
+        {"Huge": "huge"},
+        {"Gargantuan": "gargantuan"}
     ]
 }

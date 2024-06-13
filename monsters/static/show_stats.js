@@ -19,13 +19,17 @@ console.log(monster_stats)
 let stat_block = monster_stats[0];
 
 if (stat_block instanceof Object){
+    let spacerTop = document.createElement("div")
+    spacerTop.className = "frame"
+    let spacerBottom = document.createElement("div")
+    spacerBottom.className = "frame"
     let header = headerCreator.createHeader(stat_block);
     let mainstat = mainstatCreator.createMainstat(stat_block)
     let attributes = attributeCreator.createAttributes(stat_block)
     let proficiencies = proficiencyCreator.createProficiencies(stat_block)
     let actions = actionCreator.createActions(stat_block["actions"])
     
-    
+    showResults.appendChild(spacerTop)
     showResults.appendChild(header)
     showResults.appendChild(mainstat)
     showResults.appendChild(attributes)
@@ -45,5 +49,6 @@ if (stat_block instanceof Object){
         let legendaries = legendariesCreator.createLegendaries(stat_block["legendary_actions"])
         showResults.appendChild(legendaries)
     }
+    showResults.appendChild(spacerBottom)
 
 }
