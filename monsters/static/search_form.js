@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function() {
         textfield.id = `content_searchform-search_${id}`;
         textfield.name = id;
         textfield.className = "content_searchform-textsearch";
-        if (id in searchvalue[0]){
+        if (searchvalue.length > 0 && id in searchvalue[0]){
             textfield.value = searchvalue[0][id]
         }
         searchForm.appendChild(label);
@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 option.innerHTML = key
                 selection.appendChild(option)
             });
-            if (id in searchvalue[0]){
+            if (searchvalue.length > 0 && id in searchvalue[0]){
                 selection.value = searchvalue[0][id]
             }
             searchForm.appendChild(selection)

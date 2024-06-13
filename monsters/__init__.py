@@ -28,14 +28,14 @@ def create_app():
     @app.route("/", methods=('GET', 'POST'))
     def index():
         export_list = []
+        searchvalues = dict()
         if request.method == 'POST':
             fields = ["index", "name"]
             data=gather_data(request.form, fields)
-            searchvalue = dict()
             for field in request.form:
                 if request.form[field] and request.form[field] != "none":
-                    searchvalue.setdefault(field, request.form[field])
-            searchvalues = json.dumps([searchvalue])
+                    searchvalues.setdefault(field, request.form[field])
+            searchvalues = json.dumps([searchvalues])
             for stat in data:
                 stat.pop("_id")
                 export_list.append(stat)
