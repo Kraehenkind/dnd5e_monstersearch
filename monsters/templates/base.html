@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <title>{% block title %}{% endblock %}</title>
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-<section class="content">
+<section class="section">
     <header>
       {% block header %}{% endblock %}
     </header>
-      {% block content %}{% endblock %}
+    {% block menue %}{% endblock %}
+    {% block content %}
+    {% endblock %}
 </section>

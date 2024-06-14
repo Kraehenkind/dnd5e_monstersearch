@@ -5,6 +5,10 @@
 {% block header %}
     <h1>The Monster Manual</h1>
 {% endblock header %}
+{% block menue %}
+    <div id = "section_menueDiv" class="menue stats"></div>
+    <script src="{{url_for('static', filename='menue.js')}}"></script>
+{% endblock%}
 {% block content %}
 <div class="dataDiv" id="monster_stats" data_from_flask="{{stats}}"></div>
 <div id="content_results" class="statblock"></div>

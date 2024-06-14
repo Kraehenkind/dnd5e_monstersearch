@@ -2,10 +2,17 @@
     background-color: rgb(240, 200, 150);
     }
 
+.menue {
+    display: flex;
+    flex-wrap: wrap;
+    width: 10vw;
+    margin: 2rem;
+}
+
 .content {
     display:flex;
     flex-direction: column;
-    }
+}
         
 .statblock {
     white-space: pre-wrap;
@@ -18,6 +25,7 @@
     width: 75%;
     max-width: 60rem;
 }
+
 
 .frame {
     width: 100%;
