@@ -2,7 +2,7 @@ import os
 import json
 import mimetypes
 
-from flask import (Flask, render_template, request)
+from flask import (Flask, render_template, request, g)
 
 from monsters.datacollector import gather_data
 
@@ -42,6 +42,7 @@ def create_app():
             export_data = json.dumps(export_list)
         else:
             export_data = json.dumps(export_list)
+        
             
         return render_template('index.html', monster_data = export_data, searchvalues = searchvalues)
 

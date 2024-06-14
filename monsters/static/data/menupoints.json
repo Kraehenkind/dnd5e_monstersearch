@@ -53,7 +53,7 @@
 
     "subtype": [
         {"Subtype": "none"},
-        {"Any race": "any race"},
+        {"of varying race": "any race"},
         {"Demon": "demon"},
         {"Devil": "devil"},
         {"Dwarf": "dwarf"},

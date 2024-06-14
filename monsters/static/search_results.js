@@ -2,7 +2,7 @@ const monsterdata = document.getElementById("monster_stats").getAttribute("data_
 
 let monster_stats = JSON.parse(monsterdata);
 
-console.log(monster_stats)
+console.log(monster_stats);
 
 const showResults = document.getElementById("content_results");
 
