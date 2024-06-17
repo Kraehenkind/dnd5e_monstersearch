@@ -1,9 +1,9 @@
 .venv/
 
+dev_files/monsters/
+dev_files/dnd_data_monsters.json
+
 *.pyc
 __pycache__/
 
 instance/
-
-dev_files/dnd_data_monsters.json
-dev_files/monsters/
