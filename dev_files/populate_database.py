@@ -10,7 +10,7 @@ def get_data(selection :str = '/api/monsters')-> dict:
 
         default selection= '/api/monsters'
 
-    Return: 
+        Return: 
         Dictionary of the JSON requested
         False if connection Error
 
@@ -32,7 +32,7 @@ def create_JSON(selection :str = 'monsters', subfolder = None)->bool:
         
         Default selection = 'monsters', subfolder = None
     
-    Return: True if file was created, else False
+        Return: True if file was created, else False
            
     """
     directory = 'dev_files'
@@ -62,7 +62,7 @@ def get_all_monster_jsons()->bool:
         Monsters by URL taken from "dev_files/dnd_data_monsters.json"
 
 
-    Return: True if all went through, else False
+        Return: True if all went through, else False
 
     """
     try:
@@ -75,11 +75,13 @@ def get_all_monster_jsons()->bool:
     except FileNotFoundError:
         return False
         
-def populate_database():
+def populate_database() -> int:
     """Takes all data from JSON Files in Folder /dev/monsters
-        put them into local MongoDB
+        put them into local MongoDB (under localhost:27017)
+        DB.name = dnd
+        db.collection = monsters
 
-    Return: True if success, else False
+        Return: count of entries
     """
     client = MongoClient('localhost', port=27017)
     dbname = client['dnd']
@@ -92,12 +94,13 @@ def populate_database():
                 monsterdata = json.load(file)
                 collection.insert_one(monsterdata)
 
-    return collection.find()
+    return collection.count_documents({})
 
-def get_types():
-    """ get all existing Types in /dev/monsters/*.json
+def get_types(entrytype: str):
+    """ get all existing Types under one key from 
+        JSON-files in /monsters
 
-    return: list of all types
+        return: list of all found types
     """
     types = set()
     with open('dev_files/dnd_data_monsters.json', 'r', encoding='utf-8') as file:
@@ -105,9 +108,10 @@ def get_types():
         for entry in monsterlist['results']:
             with open(f'dev_files/monsters/dnd_data_{entry["index"]}.json', 'r', encoding='utf-8') as file:
                 monsterdata = json.load(file)
-                types.add(monsterdata.get("size"))
+                types.add(monsterdata.get(entrytype))
     return [i for i in types]
                 
-print(get_types())
-#get_all_monster_jsons()
-#print(populate_database())
+
+#get_all_monster_jsons() #create local copy of all Monster-Json from API
+#print(populate_database()) # safe all Monsters in mongoDB under dnd.monsters
+# print(get_types("name")) # search for all possible entries under one key in all monsterstats
