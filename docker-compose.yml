@@ -1,0 +1,13 @@
+services:
+
+  app:
+    build:
+      context: ./app
+    networks:
+      - manual
+
+  mongo:
+    image: mongo
+    restart: always
+    networks:
+      - manual
