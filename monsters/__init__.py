@@ -5,7 +5,7 @@ import mimetypes
 from flask import Flask, render_template, request, g
 
 from monsters.datacollector import gather_data
-from init_db import initiate_db
+from monsters.init_db import initiate_db
 
 
 def create_app():
@@ -23,8 +23,6 @@ def create_app():
         os.makedirs(app.instance_path)
     except OSError:
         pass
-
-    initiate_db()
 
     @app.route("/", methods=("GET", "POST"))
     def index():
@@ -51,5 +49,8 @@ def create_app():
     from . import stats
 
     app.register_blueprint(stats.bp)
+
+    with app.app_context():
+        initiate_db()
 
     return app
