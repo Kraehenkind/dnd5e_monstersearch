@@ -11,7 +11,9 @@ from monsters.init_db import initiate_db
 def create_app():
     # application factory function
     app = Flask(__name__, instance_relative_config=True)
-    app.config.from_pyfile("config.py", silent=True)
+    app.config.from_mapping(
+        SECRET_KEY="dev", MONGO_CLIENT="localhost", MONGO_PORT=27017
+    )
 
     # set MIME-Types for .js files
     mimetypes.add_type("application/javascript", ".js")

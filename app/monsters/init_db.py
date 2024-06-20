@@ -14,9 +14,7 @@ def initiate_db() -> str:
 
     return messega of done task
     """
-    client = MongoClient(
-        current_app.config["MONGO_CLIENT"], port=current_app.config["MONGO_PORT"]
-    )
+    client = MongoClient(current_app.config["MONGO_CLIENT"])
     dbname = client["dnd"]
     collection = dbname["monsters"]
 
