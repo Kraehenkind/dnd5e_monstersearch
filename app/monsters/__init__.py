@@ -2,7 +2,7 @@ import os
 import json
 import mimetypes
 
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, current_app
 
 from monsters.datacollector import gather_data
 from monsters.init_db import initiate_db
