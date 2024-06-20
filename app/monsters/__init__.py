@@ -7,14 +7,13 @@ from flask import Flask, render_template, request
 from monsters.datacollector import gather_data
 from monsters.init_db import initiate_db
 
+mongo_uri = os.getenv("MONGO_URI", "mongodb://localhost:27017/")
+
 
 def create_app():
     # application factory function
     app = Flask(__name__, instance_relative_config=True)
-    app.config.from_mapping(
-        SECRET_KEY="dev", MONGO_CLIENT="localhost", MONGO_PORT=27017
-    )
-
+    app.config.from_mapping(SECRET_KEY="dev", MONGO_CLIENT=mongo_uri)
     # set MIME-Types for .js files
     mimetypes.add_type("application/javascript", ".js")
 
