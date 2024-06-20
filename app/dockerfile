@@ -9,4 +9,4 @@ RUN pip install --no-cache-dir --upgrade -r /app/requirements.txt
 #Portfreigabe für den Docker
 EXPOSE 5000
 
-CMD ["flask", "--app", "monsters", "run", "--host=0.0.0.0", "--debug"]
+CMD ["waitress-serve", "--host=0.0.0.0", "--port=5000", "--call", "monsters:create_app"]
