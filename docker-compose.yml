@@ -3,11 +3,15 @@ services:
   app:
     build:
       context: ./app
-    networks:
-      - manual
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/
+    depends_on:
+      - mongo
 
   mongo:
-    image: mongo
-    restart: always
-    networks:
-      - manual
+    image: mongo:latest
+    container_name: mongo_db
+    ports:
+      - "27017:27017"
