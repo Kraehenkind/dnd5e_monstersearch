@@ -12,6 +12,8 @@ def gather_data(query: dict, fields = None)-> dict:
             if not value.replace(".","").isdigit():
                 values = value.split()
                 for i in values:
+                    if i.startswith("*"):
+                        i = "."+i
                     querylist.append({key : {"$regex": i, "$options": "i"}})
             else: 
                 querylist.append({key: {"$eq": float(value), "$type": "number"}})
