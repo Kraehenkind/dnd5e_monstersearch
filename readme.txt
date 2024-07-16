@@ -1,14 +1,47 @@
-Flask-App to search most existing Monsters of DnD 5e.
+Project Introduction
 
-Setup:
-1- Have docker installed: https://docs.docker.com/engine/install/
+Welcome to this project! This work serves as an initial exercise to get started with Flask, Docker, and MongoDB. 
+While it is primarily intended as a learning exercise, I hope others might find it useful or interesting.
 
-2- Clone repo
+Overview
 
-3- in RepoDir run:
-    docker compose up -d
+This Flask application allows you to search for most existing monsters in Dungeons & Dragons 5th Edition (DnD 5e).
 
-You should now be able to access search via your browser at localhost:5000
+Setup
 
-4- To stop run in RepoDir:
-    docker compose down
+Follow these steps to set up and run the project:
+
+1. Install Docker:
+   Make sure you have Docker installed on your machine. You can find the installation instructions here: https://docs.docker.com/engine/install/
+
+2. Clone the Repository:
+   Clone this repository to your local machine.
+
+3. Start the Application:
+   Navigate to the repository directory in your terminal and run the following command to start the application:
+       docker-compose up -d
+   You should now be able to access the search functionality via your browser at: http://localhost:5000
+
+4. Stop the Application:
+   To stop the application, navigate to the repository directory in your terminal and run:
+       docker-compose down
+
+API Usage
+
+This project uses a free API to retrieve data for Dungeons & Dragons 5th Edition monsters.
+
+API: D&D 5e API (https://www.dnd5eapi.co/)
+API Documentation: https://5e-bits.github.io/docs/
+
+Attribution
+
+This project uses content from the Dungeons & Dragons 5th Edition System Reference Document (SRD) 5.1, which is available under the Open Game License (OGL). 
+Dungeons & Dragons and its associated trademarks are property of Wizards of the Coast.
+
+Open Game License: https://media.wizards.com/2016/downloads/DND/SRD-OGL_V5.1.pdf
+
+Creative Commons Attribution 4.0 International (CC BY 4.0): https://creativecommons.org/licenses/by/4.0/
+
+License
+
+This project is licensed under the MIT License. See the LICENSE file for more details.
