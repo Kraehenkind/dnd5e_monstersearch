@@ -18,7 +18,7 @@ def initiate_db() -> str:
     dbname = client["dnd"]
     collection = dbname["monsters"]
 
-    def get_data(selection: str = "/api/monsters") -> dict:
+    def get_data(selection: str = "/api/monsters") -> dict | bool:
         """Get Data under the selected API-Key from
         https://www.dnd5eapi.co<selection>
 
