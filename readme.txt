@@ -5,17 +5,17 @@ While it is primarily intended as a learning exercise, I hope others might find 
 
 Overview
 
-This Flask application allows you to search for most existing monsters in Dungeons & Dragons 5th Edition (DnD 5e).
+This Flask application allows you to search for the most common monsters in DnD 5e.
 
 Setup
 
 Follow these steps to set up and run the project:
 
 1. Install Docker:
-   Make sure you have Docker installed on your machine. You can find the installation instructions here: https://docs.docker.com/engine/install/
+   Make sure you have Docker installed. You can find the installation instructions here: https://docs.docker.com/engine/install/
 
 2. Clone the Repository:
-   Clone this repository to your local machine.
+   Clone this repository.
 
 3. Start the Application:
    Navigate to the repository directory in your terminal and run the following command to start the application:
